@@ -18,4 +18,9 @@ Methods:
     - accepts the resolved API data (JSON) as arg
     - converts the API data into a js obj
     - create and return a js object w/ only the necessary data
+        - temperature (tempmax, tempmin, temp, feelslike)
+        - humidity
+        - windspeed
+        - description
+        - icon
 */
