@@ -3,7 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tenki: An Odin Project Weather App</title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <h1>Tenki - Access the Atmos</h1>
+      <div id="search-bar-container">
+        <form id="search-form">
+          <label for="weather-search">Enter a location</label>
+          <input type="text" name="weather-search" id="weather-search">
+          <button type="submit" id="submit-btn">Search</button>
+        </form>
+      </div>
+      <div id="weather-display">
+        <img id="weather-icon" src="#">
+        <div id="description"></div>
+        <div id="temperature-data">
+          <span id="tempmax"></span>
+          <span id="tempmin"></span>
+          <span id="temp"></span>
+          <span id="feels-like"></span>
+        </div>
+        <div id="humidity"></div>
+        <div id="windspeed"></div>
+      </div>
+      <dialog id="error-message-modal">
+        <p>Whoops! Looks like that data isn't available.</p>
+        <button type="button" id="close-dialog-btn">Return to search</button>
+      </dialog>
+    </main>
+  </body>
 </html>
