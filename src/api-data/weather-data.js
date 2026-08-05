@@ -31,7 +31,7 @@ export class WeatherData {
         this.apiKey = "7LVJRQVYQG7M8VGRCKHUCV5B3";
     }
 
-    async queryWeatherData() {
+    async queryStandardData() {
         try {
             const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${this.apiKey}&include=current`);
             const data = await response.json();
