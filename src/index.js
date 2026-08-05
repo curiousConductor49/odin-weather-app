@@ -18,14 +18,20 @@ event listener scope:
 */
 
 import { cleanUserInput } from "./user-input/clean-user-input.js";
+import { WeatherData } from "./api-data/weather-data.js";
 
 
 // TESTING ZONE
 // const weatherSearchForm = document.querySelector("#search-form");
 // const weatherSearchBar = document.querySelector("#weather-search");
 
-// weatherSearchForm.addEventListener("submit", (event) => {
+// weatherSearchForm.addEventListener("submit", async (event) => {
 //     event.preventDefault();
-//     const test = cleanUserInput(event.target.querySelector("#weather-search").value);
-//     console.log(test);
+//     const userInput = event.target.querySelector("#weather-search").value;
+//     const weather = new WeatherData(userInput);
+//     const apiResults = await weather.queryWeatherData();
+//     const apiMetricResults = await weather.queryMetricData();
+
+//     console.log(apiMetricResults);
+//     console.log(apiResults);
 // })
