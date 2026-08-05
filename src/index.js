@@ -30,10 +30,12 @@ import { WeatherData } from "./api-data/weather-data.js";
 //     const userInput = event.target.querySelector("#weather-search").value;
 //     const weather = new WeatherData(userInput);
 //     const apiResults = await weather.queryStandardData();
-//     const apiMetricResults = await weather.queryMetricData();
-//     const slimmedResults = weather.processData(apiResults);
+//     const apiTempResults = await weather.queryTempCelsiusData();
+//     const standard = weather.processStandardData(apiResults);
+//     const temp = weather.processTempCelsiusData(apiTempResults);
 
-//     console.log(apiMetricResults);
+//     console.log(apiTempResults);
 //     console.log(apiResults);
-//     console.log(slimmedResults);
+//     console.log(standard);
+//     console.log(temp);
 // })
