@@ -42,7 +42,17 @@ export class WeatherData {
         }
     }
 
-    // async queryCelsiusData() {}
+    async queryMetricData() {
+        try {
+            const apiKey = "7LVJRQVYQG7M8VGRCKHUCV5B3";
+            const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${apiKey}&unitGroup=metric`);
+            const data = await response.json();
+
+            return data;
+        } catch (error) {
+            console.log("Error:", error.message);
+        }
+    }
 
     // async processWeatherData() {}
 }
