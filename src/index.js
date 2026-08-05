@@ -29,9 +29,11 @@ import { WeatherData } from "./api-data/weather-data.js";
 //     event.preventDefault();
 //     const userInput = event.target.querySelector("#weather-search").value;
 //     const weather = new WeatherData(userInput);
-//     const apiResults = await weather.queryWeatherData();
+//     const apiResults = await weather.queryStandardData();
 //     const apiMetricResults = await weather.queryMetricData();
+//     const slimmedResults = weather.processData(apiResults);
 
 //     console.log(apiMetricResults);
 //     console.log(apiResults);
+//     console.log(slimmedResults);
 // })
