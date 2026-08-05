@@ -20,7 +20,7 @@ Methods:
     - create and return a js object w/ only the necessary data
         - temperature (temp, feelslike)
         - humidity
-        - windspeed
+        - wind (windspeed, windgust)
         - conditions
         - icon
 */
