@@ -53,5 +53,10 @@ export class WeatherData {
         }
     }
 
-    // async processWeatherData() {}
+    processData(data) {
+        const { conditions, humidity, windspeed, windgust, temp, feelslike, icon } = data.currentConditions;
+        const weatherObj = { conditions, humidity, windspeed, windgust, temp, feelslike, icon };
+
+        return weatherObj;
+    }
 }
