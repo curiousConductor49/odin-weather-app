@@ -16,3 +16,5 @@ event listener scope:
     - attach event listener to error msg dialog
         - close dialog when close btn is clicked
 */
+
+import { cleanUserInput } from "./user-input/clean-user-input.js";
