@@ -18,3 +18,14 @@ event listener scope:
 */
 
 import { cleanUserInput } from "./user-input/clean-user-input.js";
+
+
+// TESTING ZONE
+// const weatherSearchForm = document.querySelector("#search-form");
+// const weatherSearchBar = document.querySelector("#weather-search");
+
+// weatherSearchForm.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     const test = cleanUserInput(event.target.querySelector("#weather-search").value);
+//     console.log(test);
+// })
