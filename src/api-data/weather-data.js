@@ -28,12 +28,12 @@ Methods:
 export class WeatherData {
     constructor(userInputLocation) {
         this.location = userInputLocation;
+        this.apiKey = "7LVJRQVYQG7M8VGRCKHUCV5B3";
     }
 
     async queryWeatherData() {
         try {
-            const apiKey = "7LVJRQVYQG7M8VGRCKHUCV5B3";
-            const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${apiKey}`);
+            const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${this.apiKey}`);
             const data = await response.json();
 
             return data;
@@ -44,8 +44,7 @@ export class WeatherData {
 
     async queryMetricData() {
         try {
-            const apiKey = "7LVJRQVYQG7M8VGRCKHUCV5B3";
-            const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${apiKey}&unitGroup=metric`);
+            const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${this.apiKey}&unitGroup=metric`);
             const data = await response.json();
 
             return data;
