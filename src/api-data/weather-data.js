@@ -53,6 +53,17 @@ export class WeatherData {
         }
     }
 
+    async queryTempFahrenheitData() {
+        try {
+            const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.location}?key=${this.apiKey}&include=current&elements=temp,feelslike`);
+            const data = await response.json();
+
+            return data;
+        } catch (error) {
+            console.log("Error:", error.message);
+        }
+    }
+
     processStandardData(data) {
         const { conditions, humidity, windspeed, windgust, temp, feelslike, icon } = data.currentConditions;
         const weatherObj = { conditions, humidity, windspeed, windgust, temp, feelslike, icon };
@@ -60,7 +71,7 @@ export class WeatherData {
         return weatherObj;
     }
 
-    processTempCelsiusData(data) {
+    processTempData(data) {
         const { temp, feelslike } = data.currentConditions;
         const tempObj = { temp, feelslike };
 
