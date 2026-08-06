@@ -12,7 +12,7 @@ export function showStandardData(data, displays) {
     const [ conditionsDisplay, humidityDisplay, windspeedDisplay, windgustDisplay, tempDisplay, feelslikeDisplay, weatherIconDisplay ] = displays;
 
     conditionsDisplay.textContent = conditions;
-    humidityDisplay.textContent = `${humidity}%`;
+    humidityDisplay.textContent = `Humidity: ${humidity}%`;
     windspeedDisplay.textContent = `Wind: ${windspeed} mph`;
     windgustDisplay.textContent = `Gust: ${windgust} mph`;
     tempDisplay.textContent = `${temp} F°`;
