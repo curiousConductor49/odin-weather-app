@@ -15,20 +15,20 @@
           <button type="submit" id="submit-btn">Search</button>
         </form>
       </div>
-      <div id="weather-display">
-        <img id="weather-icon" src="#">
-        <div id="conditions"></div>
-        <div id="temperature-data">
-          <div>
+      <div id="weather-display" class="container">
+        <img id="weather-icon-display" class="display" src="#">
+        <div id="conditions-display" class="display"></div>
+        <div id="temperature-display" class="container">
+          <div class="container">
             <input type="checkbox" name="temp-unit-toggle" id="temp-unit-toggle">
             <label for="temp-unit-toggle">Celsius</label>
           </div>
-          <span id="temp"></span>
-          <span id="feels-like"></span>
+          <span id="temp-display" class="display"></span>
+          <span id="feelslike-display" class="display"></span>
         </div>
-        <div id="humidity"></div>
-        <div id="windspeed"></div>
-        <div id="windgust"></div>
+        <div id="humidity-display" class="display"></div>
+        <div id="windspeed-display" class="display"></div>
+        <div id="windgust-display" class="display"></div>
       </div>
       <dialog id="error-message-modal">
         <p>Whoops! Looks like that data isn't available.</p>
