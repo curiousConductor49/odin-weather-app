@@ -35,19 +35,23 @@ const feelslikeDisplay = document.querySelector("#feelslike-display");
 const weatherIconDisplay = document.querySelector("#weather-icon-display");
 
 weatherSearchForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const userInput = event.target.querySelector("#weather-search").value;
-    const weather = new WeatherData(userInput);
-    const apiResults = await weather.queryStandardData();
-    const apiTempResults = await weather.queryTempCelsiusData();
-    const standard = weather.processStandardData(apiResults);
-    const temp = weather.processTempCelsiusData(apiTempResults);
-    const displays = [conditionsDisplay, humidityDisplay, windspeedDisplay, windgustDisplay, tempDisplay, feelslikeDisplay, weatherIconDisplay];
+    try {
+        event.preventDefault();
+        const userInput = event.target.querySelector("#weather-search").value;
+        const weather = new WeatherData(userInput);
+        const apiResults = await weather.queryStandardData();
+        const apiTempResults = await weather.queryTempCelsiusData();
+        const standard = weather.processStandardData(apiResults);
+        const temp = weather.processTempCelsiusData(apiTempResults);
+        const displays = [conditionsDisplay, humidityDisplay, windspeedDisplay, windgustDisplay, tempDisplay, feelslikeDisplay, weatherIconDisplay];
 
-    console.log(apiTempResults);
-    console.log(apiResults);
-    console.log(standard);
-    console.log(temp);
+        console.log(apiTempResults);
+        console.log(apiResults);
+        console.log(standard);
+        console.log(temp);
 
-    showStandardData(standard, displays);
+        showStandardData(standard, displays);
+    } catch (error) {
+        console.log("Error:", error.message);
+    }
 })
