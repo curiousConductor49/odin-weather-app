@@ -18,6 +18,7 @@ event listener scope:
 */
 
 import { cleanUserInput } from "./user-input/clean-user-input.js";
+import { formatUserInput } from "./user-input/format-user-input.js";
 import { WeatherData } from "./api-data/weather-data.js";
 import { showStandardData } from "./data-display/show-standard-data.js";
 import { showTempData } from "./data-display/show-temp-data.js";
@@ -30,6 +31,7 @@ const errorMsgDialog = document.querySelector("#error-message-dialog");
 const closeDialogBtn = document.querySelector("#close-dialog-btn");
 const tempUnitToggle = document.querySelector("#temp-unit-toggle");
 
+const locationDisplay = document.querySelector("#location-display");
 const conditionsDisplay = document.querySelector("#conditions-display");
 const humidityDisplay = document.querySelector("#humidity-display");
 const windspeedDisplay = document.querySelector("#windspeed-display");
@@ -65,6 +67,7 @@ weatherSearchForm.addEventListener("submit", async (event) => {
             console.log(tempCelsius);
             console.log(tempFarenheit);
 
+            locationDisplay.textContent = formatUserInput(userInput);
             showStandardData(standard, displays);
 
             tempUnitToggle.addEventListener("change", (event) => event.target.checked ? showTempData(tempCelsius, displays, true) : showTempData(tempFarenheit, displays, false));
