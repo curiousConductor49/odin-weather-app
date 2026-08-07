@@ -31,6 +31,7 @@ const errorMsgDialog = document.querySelector("#error-message-dialog");
 const closeDialogBtn = document.querySelector("#close-dialog-btn");
 const tempUnitToggle = document.querySelector("#temp-unit-toggle");
 
+const weatherDisplay = document.querySelector("#weather-display");
 const locationDisplay = document.querySelector("#location-display");
 const conditionsDisplay = document.querySelector("#conditions-display");
 const humidityDisplay = document.querySelector("#humidity-display");
@@ -39,6 +40,8 @@ const windgustDisplay = document.querySelector("#windgust-display");
 const tempDisplay = document.querySelector("#temp-display");
 const feelslikeDisplay = document.querySelector("#feelslike-display");
 const weatherIconDisplay = document.querySelector("#weather-icon-display");
+
+window.addEventListener("load", () => weatherDisplay.style.visibility = "hidden");
 
 weatherSearchForm.addEventListener("submit", async (event) => {
     try {
@@ -67,6 +70,8 @@ weatherSearchForm.addEventListener("submit", async (event) => {
             console.log(tempCelsius);
             console.log(tempFarenheit);
 
+            weatherDisplay.style.visibility = "visible";
+            weatherSearchBar.value = "";
             locationDisplay.textContent = formatUserInput(userInput);
             showStandardData(standard, displays);
 
