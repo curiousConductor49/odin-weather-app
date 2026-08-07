@@ -38,6 +38,7 @@ weatherSearchForm.addEventListener("submit", async (event) => {
         // cleanly notify user of request errors with a basic modal
         if (apiResults === undefined) {
             errorMsgDialog.showModal();
+            weatherSearchBar.value = "";
             return;
         } else {
             // request temperature API data (celsius, fahrenheit)
