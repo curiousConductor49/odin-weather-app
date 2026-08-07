@@ -47,9 +47,8 @@ weatherSearchForm.addEventListener("submit", async (event) => {
     try {
         event.preventDefault();
 
-        const userInput = cleanUserInput(event.target.querySelector("#weather-search").value);
-
-        const weather = new WeatherData(userInput);
+        const location = cleanUserInput(event.target.querySelector("#weather-search").value);
+        const weather = new WeatherData(location);
         const apiResults = await weather.queryStandardData();
         
         if (apiResults === undefined) {
