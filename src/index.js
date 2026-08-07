@@ -26,6 +26,8 @@ import { showTempData } from "./data-display/show-temp-data.js";
 // TESTING ZONE
 const weatherSearchForm = document.querySelector("#search-form");
 const weatherSearchBar = document.querySelector("#weather-search");
+const errorMsgDialog = document.querySelector("#error-message-dialog");
+const closeDialogBtn = document.querySelector("#close-dialog-btn");
 const tempUnitToggle = document.querySelector("#temp-unit-toggle");
 
 const conditionsDisplay = document.querySelector("#conditions-display");
@@ -40,28 +42,35 @@ weatherSearchForm.addEventListener("submit", async (event) => {
     try {
         event.preventDefault();
 
-        const userInput = event.target.querySelector("#weather-search").value;
+        const userInput = cleanUserInput(event.target.querySelector("#weather-search").value);
 
         const weather = new WeatherData(userInput);
         const apiResults = await weather.queryStandardData();
-        const apiTempCelsiusResults = await weather.queryTempCelsiusData();
-        const apiFahrenheitResults = await weather.queryTempFahrenheitData();
+        
+        if (apiResults === undefined) {
+            errorMsgDialog.showModal();
+            return;
+        } else {
+            const apiTempCelsiusResults = await weather.queryTempCelsiusData();
+            const apiFahrenheitResults = await weather.queryTempFahrenheitData();
 
-        const standard = weather.processStandardData(apiResults);
-        const tempCelsius = weather.processTempData(apiTempCelsiusResults);
-        const tempFarenheit = weather.processTempData(apiFahrenheitResults);
+            const standard = weather.processStandardData(apiResults);
+            const tempCelsius = weather.processTempData(apiTempCelsiusResults);
+            const tempFarenheit = weather.processTempData(apiFahrenheitResults);
 
-        const displays = [conditionsDisplay, humidityDisplay, windspeedDisplay, windgustDisplay, tempDisplay, feelslikeDisplay, weatherIconDisplay];
+            const displays = [conditionsDisplay, humidityDisplay, windspeedDisplay, windgustDisplay, tempDisplay, feelslikeDisplay, weatherIconDisplay];
 
-        console.log(apiResults);
-        console.log(standard);
-        console.log(tempCelsius);
-        console.log(tempFarenheit);
+            console.log(apiResults);
+            console.log(standard);
+            console.log(tempCelsius);
+            console.log(tempFarenheit);
 
-        showStandardData(standard, displays);
+            showStandardData(standard, displays);
 
-        tempUnitToggle.addEventListener("change", (event) => event.target.checked ? showTempData(tempCelsius, displays, true) : showTempData(tempFarenheit, displays, false));
+            tempUnitToggle.addEventListener("change", (event) => event.target.checked ? showTempData(tempCelsius, displays, true) : showTempData(tempFarenheit, displays, false));
+        }
     } catch (error) {
         console.log("Error:", error.message);
     }
 })
+closeDialogBtn.addEventListener("click", () => errorMsgDialog.close());
